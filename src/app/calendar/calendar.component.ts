@@ -15,11 +15,11 @@ export class CalendarComponent implements OnInit {
   @ViewChild('calendar', { static: true }) calendar!: MatCalendar<Date>;
   //selectedDate: any;
   //minDate: string | null = null;
-  datehighlight = ["2021-06-05T18:30:00.000Z", "2021-06-06T18:30:00.000Z", "2021-06-07T18:30:00.000Z", "2021-06-09T18:30:00.000Z", "2021-06-08T18:30:00.000Z", "2021-06-10T18:30:00.000Z", "2021-06-11T18:30:00.000Z"];
+  //datehighlight = ["2021-06-05T18:30:00.000Z", "2021-06-06T18:30:00.000Z", "2021-06-07T18:30:00.000Z", "2021-06-09T18:30:00.000Z", "2021-06-08T18:30:00.000Z", "2021-06-10T18:30:00.000Z", "2021-06-11T18:30:00.000Z"];
 
   sampleRange!: DateRange<Date>;
 
-  
+
 
 
   constructor(private fb: FormBuilder) {
@@ -48,13 +48,13 @@ export class CalendarComponent implements OnInit {
   selectedDate: any;
 
 
-  dateClass() {
+  /*dateClass() {
     return (date: Date): MatCalendarCellCssClasses => {
       console.log(date);
       const highlightDate = this.datehighlight.map(strDate => new Date(strDate)).some(d => d.getDate() === date.getDate() && d.getMonth() === date.getMonth() && d.getFullYear() === date.getFullYear());
       return highlightDate ? 'special-date' : '';
     };
-  }
+  }*/
 
 
 
@@ -85,20 +85,21 @@ export class CalendarComponent implements OnInit {
     console.log(`${type}: ${event4.value}`);
   }
 
-  sampleClass: MatCalendarCellClassFunction<Date> = (cellDate: any, view: any) => {
+  /*sampleClass: MatCalendarCellClassFunction<Date> = (cellDate: any, view: any) => {
     if (view === 'month') {
       const date = cellDate.getDate();
       return (date === new Date(this.value1) || date === 2) ? 'example-custom-date-class' : '';
     }
     return '';
-  }
+  }*/
 
   refreshDR() {
     this.sampleRange = new DateRange((() => {
       let v1 = new Date();
-      let v2=new Date();
+      let v2 = new Date();
+
       v1.setDate(v1.getDate() + v2.getDate());
-      return v1;
+      return v1
     })(), new Date());
   }
 
