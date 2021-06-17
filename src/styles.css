@@ -6,5 +6,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .special-date{
     background-color: #04009A;
     border-radius: 50%;
-    color:#DDDDDD;
+    color:white;
+}
+
+.example-custom-date-class{
+    background: orange;
+    border-radius: 50%;
 }
