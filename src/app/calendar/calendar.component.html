@@ -15,7 +15,7 @@
         </mat-date-range-input>
 
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker>
+        <mat-date-range-picker touchUi #picker>
             <mat-datepicker-actions>
                 <button mat-button matDatepickerCancel>Cancel</button>
                 <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
@@ -30,7 +30,7 @@
         <input matInput [matDatepicker]="picker1" formControlName="value1" (dateInput)="changeDate3('input',$event)"
             (dateChange)="changeDate3('change',$event)" [min]="first" [max]="last">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1>
+        <mat-datepicker touchUi #picker1>
             <mat-datepicker-actions>
                 <button mat-button matDatepickerCancel>Cancel</button>
                 <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
@@ -41,9 +41,9 @@
     <mat-form-field appearance="outline" [formGroup]="custom">
         <mat-label>End date</mat-label>
         <input matInput [matDatepicker]="picker2" formControlName="value2" (dateInput)="changeDate4('input',$event)"
-            (dateChange)="changeDate4('change',$event)" [min]="first"[max]="last">
+            (dateChange)="changeDate4('change',$event)" [min]="first" [max]="last">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2>
+        <mat-datepicker touchUi #picker2>
             <mat-datepicker-actions>
                 <button mat-button matDatepickerCancel>Cancel</button>
                 <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
@@ -56,6 +56,7 @@
 
 <div class="container">
     <mat-card class="demo-inline-calendar-card">
-        <mat-calendar [minDate]="minDate" [maxDate]="maxDate" #calendar [dateClass]="sampleClass" [selected]="selectedDate"></mat-calendar>
+        <mat-calendar #calendar [minDate]="minDate" [maxDate]="maxDate" [selected]="this.sampleRange"
+            [comparisonStart]="custom.get('value1')?.value" [comparisonEnd]="custom.get('value2')?.value"></mat-calendar>
     </mat-card>
 </div>

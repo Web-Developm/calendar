@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatCalendarCellCssClasses, MatCalendar, MatCalendarCellClassFunction, MatDatepicker, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { DateRange, MAT_RANGE_DATE_SELECTION_MODEL_PROVIDER } from '@angular/material/datepicker';
+
+
 
 @Component({
   selector: 'app-calendar',
@@ -14,10 +17,14 @@ export class CalendarComponent implements OnInit {
   //minDate: string | null = null;
   datehighlight = ["2021-06-05T18:30:00.000Z", "2021-06-06T18:30:00.000Z", "2021-06-07T18:30:00.000Z", "2021-06-09T18:30:00.000Z", "2021-06-08T18:30:00.000Z", "2021-06-10T18:30:00.000Z", "2021-06-11T18:30:00.000Z"];
 
+  sampleRange!: DateRange<Date>;
+
+  
 
 
-
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    this.refreshDR();
+  }
 
   select = this.fb.group({
     start: [],
@@ -38,7 +45,7 @@ export class CalendarComponent implements OnInit {
   minDate: any = new Date();
   maxDate: any = new Date();
 
-  selectedDate = new Date();
+  selectedDate: any;
 
 
   dateClass() {
@@ -49,18 +56,12 @@ export class CalendarComponent implements OnInit {
     };
   }
 
-  sampleClass: MatCalendarCellClassFunction<Date> = (cellDate: any, view: any) => {
-    if (view === 'month') {
-      const date = cellDate.getDate();
-      return (date === 1 || date === 20 || date === 25) ? 'example-custom-date-class' : '';
-    }
-    return '';
-  }
 
 
-  
-  
-  
+
+
+
+
   changeDate1 = (type: string, event1: MatDatepickerInputEvent<Date>): any => {
     this.first = event1.value;
     console.log(`${type}: ${event1.value}`);
@@ -75,7 +76,7 @@ export class CalendarComponent implements OnInit {
   changeDate3 = (type: string, event3: MatDatepickerInputEvent<Date>): any => {
     this.value1 = event3.value;
     console.log(`${type}: ${event3.value}`);
-    this.selectedDate = new Date(this.value1);
+    //this.selectedDate = new Date(this.value1);
 
   }
 
@@ -84,7 +85,24 @@ export class CalendarComponent implements OnInit {
     console.log(`${type}: ${event4.value}`);
   }
 
-  
+  sampleClass: MatCalendarCellClassFunction<Date> = (cellDate: any, view: any) => {
+    if (view === 'month') {
+      const date = cellDate.getDate();
+      return (date === new Date(this.value1) || date === 2) ? 'example-custom-date-class' : '';
+    }
+    return '';
+  }
+
+  refreshDR() {
+    this.sampleRange = new DateRange((() => {
+      let v1 = new Date();
+      let v2=new Date();
+      v1.setDate(v1.getDate() + v2.getDate());
+      return v1;
+    })(), new Date());
+  }
+
+
 
   ngOnInit(): void {
   }
