@@ -70,11 +70,11 @@ export class CalendarComponent implements OnInit {
 
   // first: any = new Date(this.select.get('start')?.value);
 
-  first: any = moment(this.select.get('start')?.value).format('dd-mm-yyyy')
-  last: any = moment(this.select.get('end')?.value).format('dd-mm-yyyy');
+  first: any = new Date(this.select.get('start')?.value);
+  last: any = new Date(this.select.get('end')?.value);
 
-  value1: any = moment(this.custom.get('value1')?.value).format('dd-mm-yyyy');
-  value2: any = moment(this.custom.get('value2')?.value).format('dd-mm-yyyy');
+  value1: any = new Date(this.custom.get('value1')?.value);
+  value2: any = new Date(this.custom.get('value2')?.value);
 
   minDate: any = new Date();
   maxDate: any = new Date();
