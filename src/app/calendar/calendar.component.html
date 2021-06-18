@@ -25,6 +25,13 @@
 </div>
 
 <div class="container">
+    <mat-form-field appearance="outline">
+        <mat-label>Time</mat-label>
+        <input matInput type="time">
+    </mat-form-field>
+</div>
+
+<div class="container">
     <mat-form-field appearance="outline" [formGroup]="custom">
         <mat-label>Start date</mat-label>
         <input matInput [matDatepicker]="picker1" formControlName="value1" (dateInput)="changeDate3('input',$event)"
@@ -38,6 +45,11 @@
         </mat-datepicker>
     </mat-form-field>
 
+    <mat-form-field appearance="outline">
+        <mat-label>Start Time</mat-label>
+        <input matInput type="time">
+    </mat-form-field>
+
     <mat-form-field appearance="outline" [formGroup]="custom">
         <mat-label>End date</mat-label>
         <input matInput [matDatepicker]="picker2" formControlName="value2" (dateInput)="changeDate4('input',$event)"
@@ -49,6 +61,11 @@
                 <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
             </mat-datepicker-actions>
         </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>End Time</mat-label>
+        <input matInput type="time">
     </mat-form-field>
 </div>
 
