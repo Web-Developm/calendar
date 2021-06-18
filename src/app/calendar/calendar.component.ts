@@ -1,14 +1,46 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatCalendarCellCssClasses, MatCalendar, MatCalendarCellClassFunction, MatDatepicker, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+
+import moment from 'moment';
+
+import { default as _rollupMoment, Moment } from 'moment';
+
 import { DateRange, MAT_RANGE_DATE_SELECTION_MODEL_PROVIDER } from '@angular/material/datepicker';
 
+/*import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD-MM-YYYY'
+  },
+
+  display:{
+    dateInput:'DD-MM-YYYY',
+    monthYearLabel:'MMM YYYY',
+    dateAllLabel:'LL',
+    monthYearAllLabel:'MMM YYYY'
+  }
+}*/
 
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
+  providers: [
+
+    /*{
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+
+    {
+      provide:MAT_DATE_FORMATS, useValue:MY_FORMATS
+    }*/
+  ]
 })
 export class CalendarComponent implements OnInit {
 
@@ -36,11 +68,13 @@ export class CalendarComponent implements OnInit {
     value2: []
   });
 
-  first: any = new Date(this.select.get('start')?.value);
-  last: any = new Date(this.select.get('end')?.value);
+  // first: any = new Date(this.select.get('start')?.value);
 
-  value1: any = new Date(this.custom.get('value1')?.value);
-  value2: any = new Date(this.custom.get('value2')?.value);
+  first: any = moment(this.select.get('start')?.value).format('dd-mm-yyyy')
+  last: any = moment(this.select.get('end')?.value).format('dd-mm-yyyy');
+
+  value1: any = moment(this.custom.get('value1')?.value).format('dd-mm-yyyy');
+  value2: any = moment(this.custom.get('value2')?.value).format('dd-mm-yyyy');
 
   minDate: any = new Date();
   maxDate: any = new Date();
