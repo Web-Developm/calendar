@@ -63,10 +63,19 @@ export class CalendarComponent implements OnInit {
     end: []
   });
 
+  timeValue1 = this.fb.group({
+    time1: []
+  });
+
   custom = this.fb.group({
     value1: [],
     value2: []
   });
+
+  timeValue2 = this.fb.group({
+    time2: [],
+    time3: []
+  })
 
   // first: any = new Date(this.select.get('start')?.value);
 
@@ -136,6 +145,8 @@ export class CalendarComponent implements OnInit {
       return v1
     })(), new Date());
   }
+
+
 
 
 

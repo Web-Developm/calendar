@@ -25,9 +25,9 @@
 </div>
 
 <div class="container">
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" [formGroup]="timeValue1">
         <mat-label>Time</mat-label>
-        <input matTimepicker mode="24h">
+        <input matTimepicker mode="24h" formControlName="time1">
     </mat-form-field>
 </div>
 
@@ -45,9 +45,9 @@
         </mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" [formGroup]="timeValue2">
         <mat-label>Start Time</mat-label>
-        <input matTimepicker mode="24h">
+        <input matTimepicker mode="24h" formControlName="time2">
     </mat-form-field>
 
     <mat-form-field appearance="outline" [formGroup]="custom">
@@ -63,9 +63,9 @@
         </mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" [formGroup]="timeValue2">
         <mat-label>End Time</mat-label>
-        <input matTimepicker mode="24h">
+        <input matTimepicker mode="24h" formControlName="time3">
     </mat-form-field>
 </div>
 
