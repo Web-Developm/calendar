@@ -138,12 +138,12 @@ export class CalendarComponent implements OnInit {
 
   refreshDR() {
     this.sampleRange = new DateRange((() => {
-      let v1 = new Date();
-      let v2 = new Date();
+      let v1 = new Date(this.value1);
+      let v2 = new Date(this.value2);
 
       v1.setDate(v1.getDate() + v2.getDate());
       return v1
-    })(), new Date());
+    })(), new Date(this.value1));
   }
 
 
