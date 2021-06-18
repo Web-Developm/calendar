@@ -52,8 +52,6 @@ export class CalendarComponent implements OnInit {
   sampleRange!: DateRange<Date>;
 
 
-
-
   constructor(private fb: FormBuilder) {
     this.refreshDR();
   }
@@ -63,18 +61,24 @@ export class CalendarComponent implements OnInit {
     end: []
   });
 
-  timeValue1 = this.fb.group({
-    time1: []
-  });
 
   custom = this.fb.group({
     value1: [],
     value2: []
   });
 
+  /* Boundary time*/
+
+  timeValue1 = this.fb.group({
+    time1: [],
+    time2: []
+  });
+
+  /* start time and end time*/
+
   timeValue2 = this.fb.group({
-    time2: [],
-    time3: []
+    time3: [],
+    time4: []
   })
 
   // first: any = new Date(this.select.get('start')?.value);
@@ -84,6 +88,12 @@ export class CalendarComponent implements OnInit {
 
   value1: any = new Date(this.custom.get('value1')?.value);
   value2: any = new Date(this.custom.get('value2')?.value);
+
+  time1: any = new Date(this.timeValue1.get('time1')?.value);
+  time2: any = new Date(this.timeValue1.get('time2')?.value);
+
+  time3: any = new Date(this.timeValue2.get('time3')?.value);
+  time4: any = new Date(this.timeValue2.get('time4')?.value);
 
   minDate: any = new Date();
   maxDate: any = new Date();
@@ -118,6 +128,7 @@ export class CalendarComponent implements OnInit {
   }
   changeDate3 = (type: string, event3: MatDatepickerInputEvent<Date>): any => {
     this.value1 = event3.value;
+
     console.log(`${type}: ${event3.value}`);
     //this.selectedDate = new Date(this.value1);
 
@@ -126,6 +137,26 @@ export class CalendarComponent implements OnInit {
   changeDate4 = (type: string, event4: MatDatepickerInputEvent<Date>): any => {
     this.value2 = event4.value;
     console.log(`${type}: ${event4.value}`);
+  }
+  
+
+  timeChange1 = (data: any): any => {
+    console.log(this.time1);
+    this.time1 = data.value;
+  }
+
+  timeChange2 = (data: any): any => {
+    this.time2 = data.value;
+    console.log(this.time2);
+  }
+
+
+  timeChange3 = (data1: any): any => {
+    console.log(this.time3);
+  }
+
+  timeChange4 = (data2: any): any => {
+    console.log(this.time4);
   }
 
   /*sampleClass: MatCalendarCellClassFunction<Date> = (cellDate: any, view: any) => {
@@ -138,6 +169,8 @@ export class CalendarComponent implements OnInit {
 
   refreshDR() {
     this.sampleRange = new DateRange((() => {
+      let v11 = new Date(this.first);
+
       let v1 = new Date(this.value1);
       let v2 = new Date(this.value2);
 

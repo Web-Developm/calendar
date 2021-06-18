@@ -5,12 +5,12 @@
 </div>
 
 
-<div class="container">
+<div class="container top">
     <mat-form-field appearance="outline" [formGroup]="select">
         <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Start Date" formControlName="start"
+            <input matStartDate placeholder="Boundry Date" formControlName="start"
                 (dateInput)="changeDate1('input',$event)" (dateChange)="changeDate1('change',$event)">
-            <input matEndDate placeholder="End Date" formControlName="end" (dateInput)="changeDate2('input',$event)"
+            <input matEndDate placeholder="Boundry Date" formControlName="end" (dateInput)="changeDate2('input',$event)"
                 (dateChange)="changeDate2('change',$event)">
         </mat-date-range-input>
 
@@ -22,12 +22,21 @@
             </mat-datepicker-actions>
         </mat-date-range-picker>
     </mat-form-field>
+
+</div>
+
+
+
+<div class="container">
+    <mat-form-field appearance="outline" [formGroup]="timeValue1">
+        <input matTimepicker placeholder="Boundary Start Time" formControlName="time1"
+            (timeChange)="timeChange1($event)">
+    </mat-form-field>
 </div>
 
 <div class="container">
     <mat-form-field appearance="outline" [formGroup]="timeValue1">
-        <mat-label>Time</mat-label>
-        <input matTimepicker mode="24h" formControlName="time1">
+        <input matTimepicker placeholder="Boundary End Time" formControlName="time2" (timeChange)="timeChange2($event)">
     </mat-form-field>
 </div>
 
@@ -47,7 +56,7 @@
 
     <mat-form-field appearance="outline" [formGroup]="timeValue2">
         <mat-label>Start Time</mat-label>
-        <input matTimepicker mode="24h" formControlName="time2">
+        <input matTimepicker mode="24h" formControlName="time3" (timeChange)="timeChange3($event)">
     </mat-form-field>
 
     <mat-form-field appearance="outline" [formGroup]="custom">
@@ -65,7 +74,7 @@
 
     <mat-form-field appearance="outline" [formGroup]="timeValue2">
         <mat-label>End Time</mat-label>
-        <input matTimepicker mode="24h" formControlName="time3">
+        <input matTimepicker mode="24h" formControlName="time4" (timeChange)="timeChange4($event)">
     </mat-form-field>
 </div>
 
