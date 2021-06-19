@@ -83,17 +83,17 @@ export class CalendarComponent implements OnInit {
 
   // first: any = new Date(this.select.get('start')?.value);
 
-  first: any = new Date(this.select.get('start')?.value);
-  last: any = new Date(this.select.get('end')?.value);
+  first: any = moment(this.select.get('start')?.value).format('DD-MM-YYYY');
+  last: any = moment(this.select.get('end')?.value).format('DD-MM-YYYY');
 
-  value1: any = new Date(this.custom.get('value1')?.value);
-  value2: any = new Date(this.custom.get('value2')?.value);
+  value1: any = moment(this.custom.get('value1')?.value).format('DD-MM-YYYY');
+  value2: any = moment(this.custom.get('value2')?.value).format('DD-MM-YYYY');
 
-  time1: any = new Date(this.timeValue1.get('time1')?.value);
-  time2: any = new Date(this.timeValue1.get('time2')?.value);
+  time1: any = moment(this.timeValue1.get('time1')?.value).format('HH:mm');
+  time2: any = moment(this.timeValue1.get('time2')?.value).format('HH:mm');
 
-  time3: any = new Date(this.timeValue2.get('time3')?.value);
-  time4: any = new Date(this.timeValue2.get('time4')?.value);
+  time3: any = moment(this.timeValue2.get('time3')?.value).format('HH:mm');
+  time4: any = moment(this.timeValue2.get('time4')?.value).format('HH:mm');
 
   minDate: any = new Date();
   maxDate: any = new Date();
@@ -138,24 +138,26 @@ export class CalendarComponent implements OnInit {
     this.value2 = event4.value;
     console.log(`${type}: ${event4.value}`);
   }
-  
+
 
   timeChange1 = (data: any): any => {
+    this.time1 = data.target.value;
     console.log(this.time1);
-    this.time1 = data.value;
   }
 
   timeChange2 = (data: any): any => {
-    this.time2 = data.value;
+    this.time2 = data.target.value;
     console.log(this.time2);
   }
 
 
   timeChange3 = (data1: any): any => {
+    this.time3 = data1.target.value;
     console.log(this.time3);
   }
 
   timeChange4 = (data2: any): any => {
+    this.time4 = data2.target.value;
     console.log(this.time4);
   }
 
@@ -169,10 +171,10 @@ export class CalendarComponent implements OnInit {
 
   refreshDR() {
     this.sampleRange = new DateRange((() => {
-      let v11 = new Date(this.first);
+      let v11 = new Date(this.first, this.time1);
 
-      let v1 = new Date(this.value1);
-      let v2 = new Date(this.value2);
+      let v1 = new Date(this.value1, this.time3);
+      let v2 = new Date(this.value2, this.time4);
 
       v1.setDate(v1.getDate() + v2.getDate());
       return v1
