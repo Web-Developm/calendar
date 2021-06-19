@@ -11,7 +11,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-material-components/datetime-picker": "^6.0.3",
     "@angular/animations": "~11.2.0",
     "@angular/cdk": "^11.2.13",
     "@angular/common": "~11.2.0",
@@ -23,7 +22,6 @@
     "@angular/platform-browser": "~11.2.0",
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
-    "mat-timepicker": "^5.1.4",
     "moment": "^2.29.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

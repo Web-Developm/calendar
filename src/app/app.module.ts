@@ -16,9 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
-import { MatTimepickerModule } from 'mat-timepicker';
 
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 
 
 
