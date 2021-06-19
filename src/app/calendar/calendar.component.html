@@ -31,12 +31,12 @@
 <div class="container" [formGroup]="timeValue1">
     <p>{{timeValue1.value| json}}</p>
     <mat-form-field appearance="outline">
-        <mat-label>Start Time</mat-label>
+        <mat-label>Boundary Start Time</mat-label>
         <input type="time" matInput placeholder="Start Time" formControlName="time1" (change)="timeChange1($event)">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-        <mat-label>End Time</mat-label>
+        <mat-label>Boundary End Time</mat-label>
         <input type="time" matInput placeholder="End Time" formControlName="time2" (change)="timeChange2($event)">
     </mat-form-field>
 
