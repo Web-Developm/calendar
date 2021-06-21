@@ -58,6 +58,8 @@
         </mat-datepicker>
     </mat-form-field>
 
+    <p>{{timeValue2.value | json}}</p>
+
     <mat-form-field appearance="outline" [formGroup]="timeValue2">
         <mat-label>Start Time</mat-label>
         <input type="time" matInput formControlName="time3" (change)="timeChange3($event)">
