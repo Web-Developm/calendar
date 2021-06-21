@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatCalendarCellCssClasses, MatCalendar, MatCalendarCellClassFunction, MatDatepicker, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -42,14 +42,19 @@ export const MY_FORMATS = {
     }*/
   ]
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, AfterViewInit {
 
   @ViewChild('calendar', { static: true }) calendar!: MatCalendar<Date>;
   //selectedDate: any;
   //minDate: string | null = null;
+
+
   datehighlight = ["2021-06-05T18:30:00.000Z", "2021-06-06T18:30:00.000Z", "2021-06-07T18:30:00.000Z", "2021-06-09T18:30:00.000Z", "2021-06-08T18:30:00.000Z", "2021-06-10T18:30:00.000Z", "2021-06-11T18:30:00.000Z"];
 
   sampleRange!: DateRange<Date>;
+
+  //test1:any=document.getElementById('calendar')?.style.background;
+
 
 
   constructor(private fb: FormBuilder) {
@@ -72,10 +77,10 @@ export class CalendarComponent implements OnInit {
   /*Start and End date in date range*/
   custom = this.fb.group({
     value1: ['', Validators.required],
-    value2: ['',Validators.required]
+    value2: ['', Validators.required]
   });
 
-  
+
   /* start time and end time*/
   timeValue2 = this.fb.group({
     time3: [''],
@@ -137,23 +142,23 @@ export class CalendarComponent implements OnInit {
 
   timeChange1 = (data: any): any => {
     this.time1 = data.target.value;
-    console.log(this.time1);
+    console.log('Boundary Start Time', this.time1);
   }
 
   timeChange2 = (data: any): any => {
     this.time2 = data.target.value;
-    console.log(this.time2);
+    console.log('Boundary End Time', this.time2);
   }
 
 
   timeChange3 = (data1: any): any => {
     this.time3 = data1.target.value;
-    console.log(this.time3);
+    console.log('Start Time', this.time3);
   }
 
   timeChange4 = (data2: any): any => {
     this.time4 = data2.target.value;
-    console.log(this.time4);
+    console.log('End Time', this.time4);
   }
 
   /*sampleClass: MatCalendarCellClassFunction<Date> = (cellDate: any, view: any) => {
@@ -186,11 +191,13 @@ export class CalendarComponent implements OnInit {
 
       v1.setDate(v1.getDate() + v2.getDate());
 
-      t1.setTime(t1.getTime() + t1.getTime());
+      //(document.getElementsByClassName('mat-calendar-table')[0] as any).style.backgroundColor="green";
+
+      console.log(document.getElementsByClassName('mat-calendar'));
+
+      //t1.setTime(t1.getTime() + t1.getTime());
 
       return v1
-
-
 
     })(), new Date(this.value1, this.time1));
 
@@ -199,24 +206,24 @@ export class CalendarComponent implements OnInit {
 
   /* validation methods*/
 
-  getstart()
-  {
-    if(this.custom.controls['value1'].hasError('required'))
-    {
+  getstart() {
+    if (this.custom.controls['value1'].hasError('required')) {
       return 'start date'
     }
 
     return '';
   }
 
-  getend()
-  {
-    if(this.custom.controls['value2'].hasError('required'))
-    {
+  getend() {
+    if (this.custom.controls['value2'].hasError('required')) {
       return 'end date';
     }
 
     return '';
+  }
+
+  ngAfterViewInit() {
+
   }
 
 
@@ -224,6 +231,7 @@ export class CalendarComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
 
 }

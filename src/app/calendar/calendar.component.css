@@ -11,3 +11,19 @@
 .top{
     margin-top: 30px;
 }
+
+.mat-calendar-body-cell{
+    background-color: yellowgreen;
+}
+
+.mat-card mat-focus-indicator{
+    background-color: turquoise;
+}
+
+.bottom{
+    padding-bottom: 100px;
+}
+
+#calendar{
+    color:#B6C867;
+}

@@ -5,7 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 
-.special-date{
+/*.special-date{
     background-color: #04009A;
     border-radius: 50%;
     color:white;
@@ -14,4 +14,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .example-custom-date-class{
     background:#558776;
     border-radius: 50%;
+}*/
+
+.mat-calendar{
+    background-color: burlywood;
+}
+
+.mat-calendar-table{
+    background-color: blanchedalmond;
+}
+.mat-calendar-body{
+    background-color: antiquewhite;
+}
+
+.mat-calendar-body-cell{
+    background-color: bisque;
 }
