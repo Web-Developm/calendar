@@ -30,3 +30,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-calendar-body-cell{
     background-color: bisque;
 }
+
+element.style{
+    background-color: black;
+}

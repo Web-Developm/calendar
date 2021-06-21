@@ -191,7 +191,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
       v1.setDate(v1.getDate() + v2.getDate());
 
-      //(document.getElementsByClassName('mat-calendar-table')[0] as any).style.backgroundColor="green";
+      //(document.getElementsByClassName('mat-calendar-table')[0] as any).style.backgroundColor = "green";
 
       console.log(document.getElementsByClassName('mat-calendar'));
 
@@ -202,6 +202,19 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     })(), new Date(this.value1, this.time1));
 
   }
+
+
+  sample() {
+    let currentDate = new Date(this.value1 - 1);
+    let endDate = new Date(this.value2 - 1);
+
+    while (currentDate <= endDate) {
+      currentDate = new Date(currentDate.setDate(currentDate.getDate() + 1));
+      console.log(currentDate.getDate());
+    }
+  }
+
+
 
 
   /* validation methods*/
