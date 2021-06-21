@@ -1,83 +1,114 @@
+<div class="sample">
+    <div class="container top">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <mat-form-field appearance="outline" [formGroup]="select">
+                    <mat-label>Boundary Range</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate placeholder="Boundry Date" formControlName="start"
+                            (dateInput)="changeDate1('input',$event)" (dateChange)="changeDate1('change',$event)">
+                        <input matEndDate placeholder="Boundry Date" formControlName="end"
+                            (dateInput)="changeDate2('input',$event)" (dateChange)="changeDate2('change',$event)">
+                    </mat-date-range-input>
+
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker touchUi #picker>
+                        <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                    </mat-date-range-picker>
+                </mat-form-field>
+            </div>
+
+            <div class="col-sm-4">
+                <mat-form-field appearance="outline" [formGroup]="timeValue1">
+                    <mat-label>Boundary Start Time</mat-label>
+                    <input type="time" matInput placeholder="Start Time" formControlName="time1"
+                        (change)="timeChange1($event)">
+                </mat-form-field>
+            </div>
+
+            <div class="col-sm-4">
+                <mat-form-field appearance="outline" [formGroup]="timeValue1">
+                    <mat-label>Boundary End Time</mat-label>
+                    <input type="time" matInput placeholder="End Time" formControlName="time2"
+                        (change)="timeChange2($event)">
+                </mat-form-field>
+            </div>
+        </div>
 
 
-<div class="container top">
-    <mat-form-field appearance="outline" [formGroup]="select">
-        <mat-label>Boundary Range</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Boundry Date" formControlName="start"
-                (dateInput)="changeDate1('input',$event)" (dateChange)="changeDate1('change',$event)">
-            <input matEndDate placeholder="Boundry Date" formControlName="end" (dateInput)="changeDate2('input',$event)"
-                (dateChange)="changeDate2('change',$event)">
-        </mat-date-range-input>
+    </div>
 
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker touchUi #picker>
-            <mat-datepicker-actions>
-                <button mat-button matDatepickerCancel>Cancel</button>
-                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-            </mat-datepicker-actions>
-        </mat-date-range-picker>
-    </mat-form-field>
 
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-form-field appearance="outline" [formGroup]="custom">
+                    <mat-label>Start date</mat-label>
+                    <input matInput [matDatepicker]="picker1" formControlName="value1"
+                        (dateInput)="changeDate3('input',$event)" (dateChange)="changeDate3('change',$event)"
+                        [min]="first" [max]="last">
+                        <mat-error *ngIf="custom.controls['value1'].invalid">{{getstart()}}</mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker1>
+                        <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                    </mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="col-sm-3">
+                <mat-form-field appearance="outline" [formGroup]="timeValue2">
+                    <mat-label>Start Time</mat-label>
+                    <input type="time" matInput formControlName="time3" (change)="timeChange3($event)">
+                </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <mat-form-field appearance="outline" [formGroup]="custom">
+                    <mat-label>End date</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="value2"
+                        (dateInput)="changeDate4('input',$event)" (dateChange)="changeDate4('change',$event)"
+                        [min]="first" [max]="last">
+                        <mat-error *ngIf="custom.controls['value2'].invalid">{{getend()}}</mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker2>
+                        <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                    </mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="col-sm-4">
+                <mat-form-field appearance="outline" [formGroup]="timeValue2">
+                    <mat-label>End Time</mat-label>
+                    <input type="time" matInput formControlName="time4" (change)="timeChange4($event)">
+                </mat-form-field>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 
 
-<div class="container" [formGroup]="timeValue1">
-    <p>{{timeValue1.value| json}}</p>
-    <mat-form-field appearance="outline">
-        <mat-label>Boundary Start Time</mat-label>
-        <input type="time" matInput placeholder="Start Time" formControlName="time1" (change)="timeChange1($event)">
-    </mat-form-field>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Boundary End Time</mat-label>
-        <input type="time" matInput placeholder="End Time" formControlName="time2" (change)="timeChange2($event)">
-    </mat-form-field>
-
-</div>
-
-
-
-<div class="container">
-    <mat-form-field appearance="outline" [formGroup]="custom">
-        <mat-label>Start date</mat-label>
-        <input matInput [matDatepicker]="picker1" formControlName="value1" (dateInput)="changeDate3('input',$event)"
-            (dateChange)="changeDate3('change',$event)" [min]="first" [max]="last">
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #picker1>
-            <mat-datepicker-actions>
-                <button mat-button matDatepickerCancel>Cancel</button>
-                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-            </mat-datepicker-actions>
-        </mat-datepicker>
-    </mat-form-field>
-
-    <p>{{timeValue2.value | json}}</p>
-
-    <mat-form-field appearance="outline" [formGroup]="timeValue2">
-        <mat-label>Start Time</mat-label>
-        <input type="time" matInput formControlName="time3" (change)="timeChange3($event)">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" [formGroup]="custom">
-        <mat-label>End date</mat-label>
-        <input matInput [matDatepicker]="picker2" formControlName="value2" (dateInput)="changeDate4('input',$event)"
-            (dateChange)="changeDate4('change',$event)" [min]="first" [max]="last">
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker touchUi #picker2>
-            <mat-datepicker-actions>
-                <button mat-button matDatepickerCancel>Cancel</button>
-                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-            </mat-datepicker-actions>
-        </mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" [formGroup]="timeValue2">
-        <mat-label>End Time</mat-label>
-        <input type="time" matInput formControlName="time4" (change)="timeChange4($event)">
-    </mat-form-field>
-</div>
 
 
 

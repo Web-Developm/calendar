@@ -1,3 +1,8 @@
+.sample{
+    border: 1px dashed black;
+    margin:10px;
+}
+
 .demo-inline-calendar-card{
     width:80%;
     margin-left: 5rem;

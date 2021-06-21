@@ -23,4 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const route=[CalendarComponent, AppComponent, PagenotfoundComponent];
+//export const route=[CalendarComponent, AppComponent, PagenotfoundComponent];

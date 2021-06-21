@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatCalendarCellCssClasses, MatCalendar, MatCalendarCellClassFunction, MatDatepicker, MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import moment from 'moment';
 
@@ -56,29 +56,30 @@ export class CalendarComponent implements OnInit {
     this.refreshDR();
   }
 
+  /* Boundary Date Range */
   select = this.fb.group({
-    start: [],
-    end: []
-  });
-
-
-  custom = this.fb.group({
-    value1: [],
-    value2: []
+    start: [''],
+    end: ['']
   });
 
   /* Boundary time*/
-
   timeValue1 = this.fb.group({
-    time1: [],
-    time2: []
+    time1: [''],
+    time2: ['']
   });
 
-  /* start time and end time*/
 
+  /*Start and End date in date range*/
+  custom = this.fb.group({
+    value1: ['', Validators.required],
+    value2: ['',Validators.required]
+  });
+
+  
+  /* start time and end time*/
   timeValue2 = this.fb.group({
-    time3: [],
-    time4: []
+    time3: [''],
+    time4: ['']
   })
 
   // first: any = new Date(this.select.get('start')?.value);
@@ -193,6 +194,29 @@ export class CalendarComponent implements OnInit {
 
     })(), new Date(this.value1, this.time1));
 
+  }
+
+
+  /* validation methods*/
+
+  getstart()
+  {
+    if(this.custom.controls['value1'].hasError('required'))
+    {
+      return 'start date'
+    }
+
+    return '';
+  }
+
+  getend()
+  {
+    if(this.custom.controls['value2'].hasError('required'))
+    {
+      return 'end date';
+    }
+
+    return '';
   }
 
 
