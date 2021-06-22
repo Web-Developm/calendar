@@ -210,7 +210,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
     while (currentDate <= endDate) {
       currentDate = new Date(currentDate.setDate(currentDate.getDate() + 1));
-      console.log(currentDate.getDate());
+      console.log(currentDate.getDate() + "-" + currentDate.getMonth() + "-" + currentDate.getFullYear());
     }
   }
 
