@@ -5255,13 +5255,6 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mat-timepicker@^5.1.4:
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/mat-timepicker/-/mat-timepicker-5.1.4.tgz#3d6f04572ae1e43999d4341a74fc35c08b2fc691"
-  integrity sha512-HuFmLhVHjRNxW1zlDEh34UhfagytQdO0B33Ma76Rso2+ophJxE0q2dn2CP2c6bOqMzOHzqjcFrcU56bAxjoNEw==
-  dependencies:
-    tslib "^2.0.0"
-
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -8253,9 +8246,9 @@ urix@^0.1.0:
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
 url-parse@^1.4.3, url-parse@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
-  integrity sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q==
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.3.tgz#71c1303d38fb6639ade183c2992c8cc0686df862"
+  integrity sha512-IIORyIQD9rvj0A4CLWsHkBBJuNqWpFQe224b6j9t/ABmquIS0qDU2pY6kl6AuOrL5OkCXHMCFNe1jBcuAggjvQ==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
